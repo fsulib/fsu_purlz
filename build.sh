@@ -8,5 +8,5 @@ cat ./default.purlz.config \
   > xform.purlz.config
 
 docker build \
-  --tag purlz:latest \
+  --tag $PURLZIMAGENAME:$PURLZIMAGETAG \
   .

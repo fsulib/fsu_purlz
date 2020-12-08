@@ -7,4 +7,4 @@ docker run -d \
   -v $(pwd)/purlz_data:/root/purlz_data \
   --name $PURLZCONTAINERNAME \
   --env-file purlz.env \
-  purlz:latest
+  $PURLZIMAGENAME:$PURLZIMAGETAG
