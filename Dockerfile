@@ -8,10 +8,10 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
     apt update && \
     apt install -y wget openjdk-6-jdk && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/persistenturls/PURLZ-Server-1.6.4.jar -P /tmp/ && \
     mv /root/purlz_data/xform.purlz.config /tmp/xform.purlz.config && \
-    java -jar /tmp/PURLZ-Server-1.6.4.jar /tmp/xform.purlz.config
+    java -jar /tmp/PURLZ-Server-1.6.4.jar /tmp/xform.purlz.config && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME ["/root/purlz_data"]
 
