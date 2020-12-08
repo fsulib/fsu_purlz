@@ -1,5 +1,5 @@
 # fsu_purlz
-Scripts for building and deploying a [PURLZ](http://www.purlz.org/) with Docker.
+Scripts for building and deploying a [PURLZ](http://www.purlz.org/) container.
 
 # Repo Contents
 - `/Dockerfile`: Dockerfile for defining the container image.
