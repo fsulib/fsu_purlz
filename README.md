@@ -11,3 +11,6 @@ Scripts for building and deploying a [PURLZ](http://www.purlz.org/) container.
 
 # Usage
 Download this repo, set your envars in `/purlz.env`, run `/build.sh` to create a custom container image, and then run `/deploy.sh` to launch it and try it out.
+
+# Backups
+This PURLZ server is configured to use HyperSQL (HSQLDB) for data storage, and the files that HSQLDB stores data in are mounted to the host at `/purlz_data` so that they can easily be backed up. If you would like to restore the PURLZ server using a previously created backup, simply stop the container, delete all of the existing files in the `/purlz_data` directory and replace them with the files from the backup and then start the container again. When the container resumes, it will use the backup data.
