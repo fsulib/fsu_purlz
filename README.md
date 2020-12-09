@@ -20,4 +20,5 @@ If you would like to restore the PURLZ server using a previously created backup,
 2. Delete all of the existing files in the `fsu_purlz/purlz_data` directory
 3. Place files from a previously created backup in `fsu_purlz/purlz_data`
 4. Start the container again
-When the container resumes, it will be using the data from the previously created backup.
+
+When the container resumes, it will be using the data from the previously created backup. Note that if you replace the data in `fsu_purlz/purlz_data` without restarting the PURLZ server, it will continue to use the data from memory and slowly overwrite the replaced backup data. Stopping the PURLZ server is required to release the current data from memory, and starting the PURLZ server again is required to source the new backup data.
