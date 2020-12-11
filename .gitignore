@@ -1,3 +1,5 @@
 xform.purlz.config
-/purlz_data/*
-!/purlz_data/.gitkeep
+/hsql_data/*
+/mysql_data/*
+!/hsql_data/.gitkeep
+!/mysql_data/.gitkeep

@@ -1,10 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 source ./purlz.env
 
+if [ "$PURLZDB" = 'hsql' ]
+then
+  VOLUME_CMD="--mount type=bind,src=$PWD/hsql_data,dst=/root/data"
+fi
+
+if [ "$PURLZDB" = 'mysql' ]
+then
+  VOLUME_CMD=""
+fi
+
 docker run -d \
   -p $PURLPORT:$PURLPORT \
-  -v $(pwd)/purlz_data:/root/purlz_data \
+  $VOLUME_CMD \
   --name $PURLZCONTAINERNAME \
   --env-file purlz.env \
   $PURLZIMAGENAME:$PURLZIMAGETAG

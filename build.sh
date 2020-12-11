@@ -1,10 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 source ./purlz.env
-rm ./xform.purlz.config
-cat ./default.purlz.config \
+
+cat ./$PURLZDB.purlz.config \
   | sed "s/_PURLHOST_/$PURLHOST/g" \
   | sed "s/_PURLPORT_/$PURLPORT/g" \
+  | sed "s/_MYSQLHOST_/$MYSQLHOST/g" \
+  | sed "s/_MYSQLPORT_/$MYSQLPORT/g" \
+  | sed "s/_MYSQLDBNAME_/$MYSQLDBNAME/g" \
+  | sed "s/_MYSQLUSERNAME_/$MYSQLUSERNAME/g" \
+  | sed "s/_MYSQLPASSWORD_/$MYSQLPASSWORD/g" \
   > xform.purlz.config
 
 docker build \
