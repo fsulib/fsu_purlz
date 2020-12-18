@@ -12,6 +12,8 @@ cat ./$PURLZDB.purlz.config \
   | sed "s/_MYSQLPASSWORD_/$MYSQLPASSWORD/g" \
   > xform.purlz.config
 
+sed "s/_PURLDNPATTERN_/$PURLDNPATTERN/" ./module.model.xml > ./module.xml
+
 docker build \
   --tag $PURLZIMAGENAME:$PURLZIMAGETAG \
   .
