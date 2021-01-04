@@ -7,16 +7,13 @@ if [ "$PURLZDB" = 'hsql' ]; then
 fi
 
 if [ "$PURLZDB" = 'mysql' ]; then
-    VOLUME_CMD="--mount type=bind,src=${PWD}/mysql,dst=/usr/local/mysql/var"
 
-    [[ -d ${PWD}/mysql ]] || mkdir -p ${PWD}/mysql 
-    
     docker run -d \
         -p $MYSQLPORT:3306 \
-        --name $MYSQLCONTAINERNAME \
-        "${VOLUME_CMD}" \ 
+        --name "${MYSQLCONTAINERNAME}" \
+	--mount type=bind,source=${PWD}/mysql_data,target=/usr/local/mysql/var \
         -e "MYSQL_ROOT_PASSWORD=$MYSQLROOTPASSWORD" \
-        mysql4:latest
+        ${MYSQLIMAGENAME}:${MYSQLIMAGETAG}
 
     sleep 5
 
@@ -32,7 +29,6 @@ fi
 
 docker run \
     -p 80:$PURLPORT \
-    $VOLUME_CMD \
     --name $PURLZCONTAINERNAME \
     --env-file purlz.env \
     --add-host mysql:172.17.0.2 \
