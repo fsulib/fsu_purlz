@@ -10,7 +10,7 @@ sed -i \
     -e "20s/_MYSQLHOST_/${PURLZ_DB_HOST}/" \
     -e "21s/_MYSQLPORT_/${PURLZ_DB_PORT}/" \
     -e "22s/_MYSQLDBNAME_/${PURLZ_DB_NAME}/" \
-    -e "23s/_MYSQLUSERNAME_/${PURLZ_DB_USER}/" \
+    -e "23s/_MYSQLUSERNAME_/${PURLZ_DB_USERNAME}/" \
     -e "24s/_MYSQLPASSWORD_/${PURLZ_DB_PASSWORD}/" \
     purlz-install.config
 
