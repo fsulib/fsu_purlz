@@ -14,4 +14,3 @@ sed -i \
     -e "24s/_MYSQLPASSWORD_/${PURLZ_DB_PASSWORD}/" \
     purlz-install.config
 
-cat purlz-install.config
